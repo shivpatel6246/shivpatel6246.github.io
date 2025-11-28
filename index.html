@@ -98,6 +98,25 @@
             text-decoration: none;
         }
         
+        .visual-item {
+            margin-bottom: 40px;
+        }
+        
+        .visual-item img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        
+        .caption {
+            font-size: 14px;
+            font-style: italic;
+            color: #333;
+            line-height: 1.5;
+        }
+        
         footer {
             margin-top: 80px;
             padding-top: 20px;
@@ -123,6 +142,7 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#visuals">Visuals</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -137,21 +157,50 @@
     <section id="experience">
         <h2>Experience</h2>
         
-        <h3>[Job Title]</h3>
-        <p class="meta">[Company] | [Dates]</p>
-        <p>[Brief description of role and accomplishments]</p>
+        <h3>Robotics Engineering Intern</h3>
+        <p class="meta">Persona AI, Houston Texas | Sept 2025 - Dec 2025</p>
         <ul>
-            <li>[Key responsibility or achievement]</li>
-            <li>[Key responsibility or achievement]</li>
-            <li>[Key responsibility or achievement]</li>
+            <li>Designing humanoid robots for heavy industry specializing in performing welding tasks in shipbuilding environments.</li>
+            <li>Led design of robotic hand control GUI, to mimic actuation similar to a human hand for dextrous manipulation. GUI enabled real time data visualization and individual joint control of the tendon driven hand consisting of 20 actuators.</li>
+            <li>Developed and tested finger mechanisms implementing impedance control for Persona's first dexterous robotic hand.</li>
         </ul>
         
-        <h3>[Job Title]</h3>
-        <p class="meta">[Company] | [Dates]</p>
-        <p>[Brief description of role and accomplishments]</p>
+        <h3>Mechatronics Engineering Intern</h3>
+        <p class="meta">Electrans Technologies, Toronto Ontario | Jan 2025 - April 2025</p>
         <ul>
-            <li>[Key responsibility or achievement]</li>
-            <li>[Key responsibility or achievement]</li>
+            <li>Developed AutoConnect, a system enabling autonomous trucks to connect to any trailer without manual intervention.</li>
+            <li>Implemented an automated trailer boom lift control system, integrating IMU-based angle sensing and CAN communication for engagement upon trailer detection. Performed sensor calibration and extensive field testing.</li>
+            <li>Led the design of an electrical pin misalignment cycle tester using a high precision gantry platform to quantify pin misalignment during truck to trailer connection and collected data on alignment tolerances to prevent pin wear.</li>
+        </ul>
+        
+        <h3>Mechanical Engineering Intern</h3>
+        <p class="meta">The Boring Company, Austin Texas | May 2024 - Aug 2024</p>
+        <ul>
+            <li>Designed and optimized components for the Prufrock tunnel boring machine using SolidWorks, focusing on muck extraction and auxiliary gantry subsystems, with a specialization in pneumatic and hydraulic systems.</li>
+            <li>Performed root cause analysis on grease system failures during TBM operation. Redesigned the grease supply system, ensuring pump performance under harsh underground conditions. New design removed air flow bottleneck allowing for a 300% increase in maximum tunnelling speed.</li>
+            <li>Led the implementation of a soil settlement monitoring ground station to prevent surface soil movement and ensure compliance with safety regulations; deployed the station onsite at the Las Vegas Convention Center dig site.</li>
+        </ul>
+        
+        <h3>Founder and Team Captain</h3>
+        <p class="meta">WatDig Design Team, Waterloo Ontario | Nov 2023 - July 2025</p>
+        <ul>
+            <li>Founded the first Canadian team to participate in the autonomous navigation challenge hosted by The Boring Company. Created an autonomous off-road rover that was able to navigate using SLAM in the first year.</li>
+            <li>Directing the development of one of UWaterloo's largest design team projects, focusing on building a small-scale tunnel boring robot for NABC 2025. Leading a team of 30 students, overseeing robot subsystem integration.</li>
+        </ul>
+        
+        <h3>Computer Vision Intern</h3>
+        <p class="meta">Linamar Flexform, Guelph Ontario | Sept 2023 - Dec 2023</p>
+        <ul>
+            <li>Contributed to the development of carbon fiber hydrogen fuel storage tanks for hydrogen fuel cell vehicles.</li>
+            <li>Initiated and led a OpenCV machine vision project to ensure maximum structural integrity during production. System autonomously measured carbon fiber weave angles in real-time. Oversaw software and mechanical system design.</li>
+            <li>Implemented a low latency OpenCV edge detection algorithm utilizing the NVIDIA Jetson Nano. Stored and analyzed braid angle data to identify trends in angle deviation, conducted root-cause analysis to prevent future occurrences.</li>
+        </ul>
+        
+        <h3>Battery Engineering Intern</h3>
+        <p class="meta">Tesla, Toronto Ontario | Jan 2023 - April 2023</p>
+        <ul>
+            <li>Utilized SolidWorks to design parts for the next iteration of electrolyte filling machines for Tesla's 4680 battery cell.</li>
+            <li>Diagnosed and resolved issues with E-Fill machines during FAT testing by analyzing cell pressure and volume data for compliance with cell filling parameters. Shipped out 5 machines testing more than 900 cells.</li>
         </ul>
     </section>
     
@@ -159,39 +208,56 @@
         <h2>Projects</h2>
         
         <h3>Tunnel Boring Machine</h3>
-        <p class="meta">[Date/Duration]</p>
-        <p>[Description of the project - what it does, why it's important, your role]</p>
-        <ul>
-            <li>[Technical detail or achievement]</li>
-            <li>[Technical detail or achievement]</li>
-            <li>[Technical detail or achievement]</li>
-        </ul>
+        <p class="meta">WatDig Design Team | Nov 2023 - Present</p>
+        <p>Leading the development of one of UWaterloo's largest design team projects, building a small-scale tunnel boring robot for the Not-A-Boring Competition 2025. Managing a team of 30 students across mechanical, electrical, and software subsystems.</p>
         
-        <h3>[Project Name]</h3>
-        <p class="meta">[Date/Duration]</p>
-        <p>[Project description]</p>
+        <h3>Autonomous Mobile Robot</h3>
+        <p class="meta">Nov 2023 - March 2024</p>
+        <p>Built an AMR for The Boring Competition, capable of navigating an off-road course without front-facing sensors. Designed, manufactured and tested the chassis in-house, developed a probabilistic roadmap algorithm using Python and ROS2 for optimal path planning. Implemented a novel ultra-wideband localization method using beacons placed on the course.</p>
         <ul>
-            <li>[Technical detail]</li>
-            <li>[Technical detail]</li>
+            <li>Won 1st place and received the Best Navigation Strategy award</li>
         </ul>
+    </section>
+    
+    <section id="visuals">
+        <h2>Visuals</h2>
         
-        <h3>[Project Name]</h3>
-        <p class="meta">[Date/Duration]</p>
-        <p>[Project description]</p>
+        <div class="visual-item">
+            <img src="images/boring-company-tbm.jpg" alt="Prufrock Tunnel Boring Machine">
+            <p class="caption">Working on the Prufrock TBM at The Boring Company's Austin facility. Redesigned the grease supply system, achieving a 300% increase in maximum tunnelling speed.</p>
+        </div>
+        
+        <div class="visual-item">
+            <img src="images/watdig-robot.jpg" alt="WatDig Autonomous Robot">
+            <p class="caption">Our autonomous rover at The Boring Competition 2024. First place winner with novel UWB localization and probabilistic path planning.</p>
+        </div>
+        
+        <div class="visual-item">
+            <img src="images/persona-hand.jpg" alt="Robotic Hand GUI">
+            <p class="caption">Control interface for Persona AI's dexterous robotic hand. Real-time visualization of 20 tendon-driven actuators.</p>
+        </div>
+        
+        <div class="visual-item">
+            <img src="images/electrans-autoconnect.jpg" alt="AutoConnect System">
+            <p class="caption">Testing the AutoConnect system at Electrans Technologies. Enabling autonomous trucks to connect to trailers without manual intervention.</p>
+        </div>
+        
+        <div class="visual-item">
+            <img src="images/team-photo.jpg" alt="WatDig Team">
+            <p class="caption">Leading a team of 30 students building a small-scale tunnel boring robot for NABC 2025.</p>
+        </div>
     </section>
     
     <section id="skills">
         <h2>Skills</h2>
-        <p><strong>Programming:</strong> [Languages you know]</p>
-        <p><strong>Engineering:</strong> [CAD, simulation tools, etc.]</p>
-        <p><strong>Tools:</strong> [Software, frameworks, etc.]</p>
-        <p><strong>Other:</strong> [Additional relevant skills]</p>
+        <p><strong>Programming:</strong> Python, C++, Pytorch, Linux, Arduino, OpenCV, Git, Excel VBA, Matlab, Simulink, Tensorflow, ROS2</p>
+        <p><strong>Design:</strong> Solidworks, NX, GD&T, AutoCAD, Fusion360, Machining, 3D printing, Rapid Prototyping, DFM, DFA, FEA</p>
     </section>
     
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-links">
-            <a href="mailto:your.email@example.com">Email</a>
+            <a href="mailto:s54patel@uwaterloo.ca">Email</a>
             <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
             <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
         </div>
