@@ -17,7 +17,7 @@
             color: #000;
             background: #fff;
             padding: 40px 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -41,6 +41,12 @@
         
         nav {
             margin: 30px 0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            padding: 15px 0;
+            z-index: 100;
+            border-bottom: 1px solid #e0e0e0;
         }
         
         nav a {
@@ -48,6 +54,7 @@
             text-decoration: none;
             margin-right: 20px;
             font-weight: 400;
+            font-size: 14px;
         }
         
         nav a:hover {
@@ -55,13 +62,13 @@
         }
         
         section {
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
         
         h2 {
             font-size: 24px;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             border-bottom: 1px solid #000;
             padding-bottom: 8px;
         }
@@ -98,27 +105,92 @@
             text-decoration: none;
         }
         
-        .visual-item {
+        /* Grid layout for engineering visuals */
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             margin-bottom: 40px;
+        }
+        
+        .visual-item {
+            margin-bottom: 0;
         }
         
         .visual-item img {
             width: 100%;
-            max-width: 100%;
-            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center;
             border: 1px solid #000;
             margin-bottom: 10px;
+            transition: opacity 0.2s ease;
+        }
+        
+        .visual-item img:hover {
+            opacity: 0.85;
         }
         
         .caption {
-            font-size: 14px;
+            font-size: 13px;
             font-style: italic;
             color: #333;
             line-height: 1.5;
         }
         
+        /* Full width layout for mountaineering */
+        .mountaineering-item {
+            margin-bottom: 50px;
+        }
+        
+        .mountaineering-item img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            margin-bottom: 15px;
+            transition: opacity 0.2s ease;
+        }
+        
+        .mountaineering-item img:hover {
+            opacity: 0.9;
+        }
+        
+        .mountaineering-caption {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Section divider for personal content */
+        .section-divider {
+            margin: 100px 0 60px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+        }
+        
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #000;
+        }
+        
+        .section-divider::before {
+            left: 0;
+        }
+        
+        .section-divider::after {
+            right: 0;
+        }
+        
         footer {
-            margin-top: 80px;
+            margin-top: 100px;
             padding-top: 20px;
             border-top: 1px solid #000;
             font-size: 14px;
@@ -129,6 +201,23 @@
             display: inline-block;
             margin-right: 15px;
             margin-top: 5px;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .visual-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            nav a {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            
+            body {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
@@ -143,6 +232,7 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#visuals">Visuals</a>
+        <a href="#mountaineering">Mountaineering</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -150,7 +240,7 @@
     <section id="about">
         <h2>About</h2>
         <p>
-            Passionate about what I do and driven to work in deep tech to help solve some of the biggest problems facing humanity. Aside from engineering, I love mountaineering. 
+            Passionate about what I do and driven to work in deep tech to help solve some of the biggest problems facing humanity. Aside from engineering, I love mountaineering.
         </p>
     </section>
     
@@ -163,8 +253,8 @@
             <li>Designing humanoid robots for heavy industry specializing in performing welding tasks in shipbuilding environments.</li>
             <li>Led design of robotic hand control GUI, to mimic actuation similar to a human hand for dextrous manipulation. GUI enabled real time data visualization and individual joint control of the tendon driven hand consisting of 20 actuators.</li>
             <li>Developed and tested finger mechanisms implementing impedance control for Persona's first dexterous robotic hand.</li>
-            <li> Worked on implementing persona's first use of soft textiles on the robot. Perfected the design and manufacturing of compliant finger pads allowing for manipulation in the real world.</li>
-            <li>Brought up the first version of tactile sensors for the R2 hand. Consisting of an array of magnets and hall effect senesors to determine contact forces from magnet displacement. </li>
+            <li>Worked on implementing persona's first use of soft textiles on the robot. Perfected the design and manufacturing of compliant finger pads allowing for manipulation in the real world.</li>
+            <li>Brought up the first version of tactile sensors for the R2 hand. Consisting of an array of magnets and hall effect sensors to determine contact forces from magnet displacement.</li>
         </ul>
         
         <h3>Mechatronics Engineering Intern</h3>
@@ -211,12 +301,11 @@
 
         <h3>Tactile Sensing Finger Pads</h3>
         <p class="meta">Persona AI | Oct 2025 - Dec 2025</p>
-        <p>Spearheaded the development of Persona's first tactile sensing solution. Utlizing magnetic sensing with magnets embedded in a compliant finger pad material with an grid of magnetometer sensors underneath. A normal or shear force will displace the magnet inside the fingerpad which will change the magnetic flux density seen by the magnetometer sensors in 3D. Sensor used differential signaling to eliminate common mode noise seen by the magnetometers in noisy EMI environments the robot would be in such as welding. Owned entire stack from PCB design, mechanical design of the fingerpad, calibration procedure and developed a neural network to capture the nonlinearities in the system and map input force to magnetometer readings. Got the NN running inference on a Raspberry pi at 80 hz, validated real time noise cancellation and accurate sensing. </p>
-        
+        <p>Spearheaded the development of Persona's first tactile sensing solution. Utilizing magnetic sensing with magnets embedded in a compliant finger pad material with a grid of magnetometer sensors underneath. A normal or shear force will displace the magnet inside the fingerpad which will change the magnetic flux density seen by the magnetometer sensors in 3D. Sensor used differential signaling to eliminate common mode noise seen by the magnetometers in noisy EMI environments the robot would be in such as welding. Owned entire stack from PCB design, mechanical design of the fingerpad, calibration procedure and developed a neural network to capture the nonlinearities in the system and map input force to magnetometer readings. Got the NN running inference on a Raspberry Pi at 80 Hz, validated real time noise cancellation and accurate sensing.</p>
         
         <h3>Tunnel Boring Machine</h3>
         <p class="meta">WatDig Design Team | Nov 2023 - Present</p>
-        <p>Leading the development of one of UWaterloo's largest design team projects, building a small-scale tunnel boring robot for the Not-A-Boring Competition 2025. Managing a team of 30 students across mechanical, electrical, and software subsystems. Machine was capable of 100 000 pounds of thrust and 6x the torque of a BMW M4</p>
+        <p>Leading the development of one of UWaterloo's largest design team projects, building a small-scale tunnel boring robot for the Not-A-Boring Competition 2025. Managing a team of 30 students across mechanical, electrical, and software subsystems. Machine was capable of 100,000 pounds of thrust and 6x the torque of a BMW M4.</p>
         
         <h3>Autonomous Mobile Robot</h3>
         <p class="meta">Nov 2023 - March 2024</p>
@@ -228,40 +317,79 @@
     
     <section id="visuals">
         <h2>Visuals</h2>
+        <div class="visual-grid">
+            <div class="visual-item">
+                <img src="Visuals/Tactile_sensor.jpeg" alt="Tactile Sensor">
+                <p class="caption">Tactile sensor I developed at Persona AI. The off-white pad in the center contains 4 magnets and a PCB board below it with 4 magnetometers. Calibrating the sensor on an Instron tensile tester with a load cell.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/prufrock.jpeg" alt="Prufrock Tunnel Boring Machine">
+                <p class="caption">One of the craziest machines I've worked on, more thrust than a Saturn V. Learned digging holes is surprisingly hard.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/AMR_bringup.jpeg" alt="WatDig Autonomous Robot">
+                <p class="caption">Commandeering a conference room in campus housing to build an AMR from scratch with my friends.</p>
+            </div>
 
-        <div class="visual-item">
-            <img src="Visuals/Tactile_sensor.jpeg" alt="Tactile Sensor">
-            <p class="caption">Tactile Sensor I developed at Persona AI. The Off-white pad in the center contains 4 magnets and a pcb board below it with 4 magnetometers. Calibrating the sensor on a Instron tensile tester with a load cell.</p>
+            <div class="visual-item">
+                <img src="Visuals/braid_angle.jpeg" alt="Braid Angle">
+                <p class="caption">Wanted a way to detect braid of carbon fiber weaves in real time, no existing CV automation company could do it. So I decided I would try to create the system of its kind myself.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/r2hand.jpeg" alt="Robotic Hand GUI">
+                <p class="caption">NASA's R2 hand that I iterated on at Persona. One of the most complex electro-mechanical systems I've worked on.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/autoconnect.jpeg" alt="AutoConnect System">
+                <p class="caption">Designed, assembled and tested this entire cycle testing system at Electrans. It allowed for the autoconnect to be precisely misaligned and cycled to quantify effects of misalignment on electrical pin wear during coupling.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/team_photo.jpeg" alt="WatDig Team">
+                <p class="caption">Leading a team of 30 students building a small-scale tunnel boring robot for NABC 2025.</p>
+            </div>
+            
+            <div class="visual-item">
+                <img src="Visuals/AMR.jpeg" alt="AMR Testing">
+                <p class="caption">Testing an AMR in a grid layed out on in the E7 design bay to verify our SLAM algorithm. Wracking our brains at 2am trying to get it to work </p>
+            </div>
+
+
+        </div>
+    </section>
+    
+    <div class="section-divider">◆</div>
+    
+    <section id="mountaineering">
+        <h2>Mountaineering</h2>
+        
+        <div class="mountaineering-item">
+            <img src="Visuals/Mountaineering/IMG_4.jpeg" alt="Mountain Climb 1">
+            <p class="mountaineering-caption">Mount Athabasca in Jasper Alberta, photo taken around 4am before starting climb. My first mountain.</p>
         </div>
         
-        <div class="visual-item">
-            <img src="Visuals/prufrock.jpeg" alt="Prufrock Tunnel Boring Machine">
-            <p class="caption">One of the craziest machines I've worked on, more thrust than a Saturn V. Learned digging holes is suprinsingly hard.</p>
+        <div class="mountaineering-item">
+            <img src="Visuals/Mountaineering/IMG_5.jpeg" alt="Mountain Climb 2">
+            <p class="mountaineering-caption">Standing at the base of the silverhorn on Athabasca, summit was shrouded in clouds.</p>
         </div>
         
-        <div class="visual-item">
-            <img src="Visuals/AMR_bringup.jpeg" alt="WatDig Autonomous Robot">
-            <p class="caption">Commandeering a conference room in campus housing to build an AMR from scratch with my friends.</p>
+        <div class="mountaineering-item">
+            <img src="Visuals/Mountaineering/IMG_1.jpeg" alt="Mountain Climb 3">
+            <p class="mountaineering-caption">Pico De Orizaba, in Mexico. Tallest volcano in North America. 18491 feet, pushed my limits of tolerating altitude sickness.</p>
         </div>
 
-        <div class="visual-item">
-            <img src="Visuals/braid_angle.jpeg" alt="Braid Angle">
-            <p class="caption">Wanted a way to detect braid of carbon fiber weaves in real time, no existing CV automation company could do it. So I decided I would try to create the system of its kind myself.</p>
+        <div class="mountaineering-item">
+            <img src="Visuals/Mountaineering/IMG_3.jpeg" alt="Mountain Climb 3">
+            <p class="mountaineering-caption">Summit of Orizaba, Insane views due to the prominence of the peak.</p>
         </div>
-        
-        <div class="visual-item">
-            <img src="Visuals/r2hand.jpeg" alt="Robotic Hand GUI">
-            <p class="caption">NASA's R2 hand that I iterated on at Persona. One of the most complex electro-mechanical systems I've worked on. </p>
-        </div>
-        
-        <div class="visual-item">
-            <img src="Visuals/autoconnect.jpeg" alt="AutoConnect System">
-            <p class="caption">Designed, assembled and tested this entire cycle testing system at Electrans. It allowed for the autoconnect to be precisely misaligned and cycled to quantify effects of misalignment on electrical pin wear during coupling.</p>
-        </div>
-        
-        <div class="visual-item">
-            <img src="Visuals/team_photo.jpeg" alt="WatDig Team">
-            <p class="caption">Leading a team of 30 students building a small-scale tunnel boring robot for NABC 2025.</p>
+
+        <div class="mountaineering-item">
+            <img src="Visuals/Mountaineering/IMG_2.jpeg" alt="Mountain Climb 3">
+            <p class="mountaineering-caption">Me standing at the summit of Orizaba, gave everything I had.</p>
         </div>
     </section>
     
